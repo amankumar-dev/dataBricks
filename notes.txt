@@ -1,0 +1,12 @@
+Databricks?
+Managed spark in the cloud + Tools for data engineering, data science & ML
+
+What does Databricks do?
+-> Manages spark cluster: We didn't configure server manually.
+-> Web based notebooks: Browser me python, sql, scala, R likh saktey hai.
+-> Delta lake support: ACID transaction, Schema Enforcement, Better performance.
+-> Integration with cloud: Databricks run krta hai AWS, Microsoft Azure, Google Cloud Services. 
+
+Spark SQL?
+It lets us use SQL queries on big data using spark. Spark SQL support the SQL ANSI (American National Standards Institutes) and ISO (International Ogranization Standarization).
+
