@@ -7,6 +7,27 @@ What does Databricks do?
 -> Delta lake support: ACID transaction, Schema Enforcement, Better performance.
 -> Integration with cloud: Databricks run krta hai AWS, Microsoft Azure, Google Cloud Services. 
 
-Spark SQL?
-It lets us use SQL queries on big data using spark. Spark SQL support the SQL ANSI (American National Standards Institutes) and ISO (International Ogranization Standarization).
+Serverless Compute?
+Serverless compute means we don't manage servers - the platform manages everything for you.
 
+Spark in Databricks?
+Go to workspace -> create -> Notebook -> python language -> just type spart it will by default pyspark.sql.import sparkSession and create spark object.
+
+Dataframe in Databricks?
+df=spark.table("workspace.default.movies")
+display(df)                                     // slower than show() but more readable
+
+Create or modify table & Upload files to a volume?
+-> Create table allow us to upload a CSV, Parquet, JSON and convert it into structred data automatically.
+-> Volume is like just upload a files and rest we will perform all operation on our own. We need to do spark.read.csv("...")
+
+Why we use Databricks when we have pyspark?
+We can use pyspark but in real production we need to manage cluster setup, workernodes, scaling, failures etc. Doing this manually on AWS/Azure with spark is painfull. But Databricks gives extra no mannual cluster setup, Auto scaling etc. 
+
+Read in Databricks?
+When we upload file in a volumen we need to specify the Schema
+df=spark.read.option('header',True).csv('takePathFromVolume/file_name.extension')
+display(df)
+
+Write in Databricks?
+df.write.mode('overwrite').parquet('path')
