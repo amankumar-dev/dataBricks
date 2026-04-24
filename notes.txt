@@ -57,4 +57,9 @@ Parition Vs parallelism?
     df.coalesce(2)                          # Reduce Partition
 -> Parallelism: It means how much task can be performed once.
     spark.sparkContent.defaultParalleism        # Get parallel value
-    
+
+Managed VS External tbales?
+-> Managed: Databricks controls data + Metadata, sotres data automatically, chooses storeage location, Manage everthing, If we drop tables data will be lost
+    df.write.saveAsTable('movie')
+-> External: Databricks controls metadata only, data is outside, Data is stored in defined path, Drop table still data exists.
+    df.write.option('path','defined/path/as/your/own').saveAsTable('movie')
