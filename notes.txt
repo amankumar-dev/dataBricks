@@ -31,3 +31,30 @@ display(df)
 
 Write in Databricks?
 df.write.mode('overwrite').parquet('path')
+
+SQL in Databricks?
+-> By using python: When we using sql we cna't just read and start doing sql it will create dataframe not table so first we need to create table after that we can use sql on it.
+    df=spark.read.dxv('path')
+    df.write.mode('overwrite').saveAsTable('movie')                 # Create a table named movie
+    df.createOrReplaceTempView('movie)                              # Work like a view in sql create virtual table named movie
+    df_boly=spark.sql("""
+                        select * from movie where industry = 'Bollywood'
+                    """)
+-> By using %sql: It will use sql directly
+    %sql
+    select * from movie where industry='Bollowood'
+
+.explain method?
+It shows how spark will execute your query. Not the result but the execution plain
+-> df.explain(: Shows basic physical plan
+-> df.explain(True)):  Shows parsed llogical plan, Analyzed plan, Optimized plan, Physical plan
+-> df.explain('formatted'): Clean readable format.
+
+Parition Vs parallelism?
+-> Partition: It means how much chunks of data
+    df.rdd.getNumPartitions()               # Get number of Partition
+    df.repartition(4)                       # Set the Partition number
+    df.coalesce(2)                          # Reduce Partition
+-> Parallelism: It means how much task can be performed once.
+    spark.sparkContent.defaultParalleism        # Get parallel value
+    
