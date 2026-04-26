@@ -58,8 +58,22 @@ Parition Vs parallelism?
 -> Parallelism: It means how much task can be performed once.
     spark.sparkContent.defaultParalleism        # Get parallel value
 
-Managed VS External tbales?
+Managed VS External tables?
 -> Managed: Databricks controls data + Metadata, sotres data automatically, chooses storeage location, Manage everthing, If we drop tables data will be lost
     df.write.saveAsTable('movie')
 -> External: Databricks controls metadata only, data is outside, Data is stored in defined path, Drop table still data exists.
     df.write.option('path','defined/path/as/your/own').saveAsTable('movie')
+
+Medellion Architecture?
+It is a way to organize data into layers for better quality and processing
+-> Bronze layer(Raw data): This is  raw unprocessed data, directly ingested from resorce, contains errors, nulls, duplicates, no cleaning.
+-> Silver layer(Cleaned Data): This is processed and cleand data i.e. remove nulls, fix datatypes, deduplicates, Basic transformations.
+-> Gold layer(Business Ready): This is final, aggregated edata i.e. ready for dashboards, KPIs, metrics, Reporting tables.
+
+Cluster?
+Cluster is like a team of computers working together. It has 2 main parts i.e. Driver nodes(brain of the cluster, sends tasks), Worker nodes(do actual works)
+=There are two types of cluster: 
+-> All pupose cluster: Hum khud cluster bnaengey aur sb cleaning sb khud karegney like a normal switch.
+-> Job cluster: Ek time set kr dengey ya ek condition wo hit hoga to khud cluster banaega aurclean krke save karega fir cluster remove kr dega
+=Steps: 
+    Compute-> create cluster-> fill details-> Choose runtime-> select machine-> set workers-> Auto terminate-> create cluster.
