@@ -77,3 +77,6 @@ Cluster is like a team of computers working together. It has 2 main parts i.e. D
 -> Job cluster: Ek time set kr dengey ya ek condition wo hit hoga to khud cluster banaega aurclean krke save karega fir cluster remove kr dega
 =Steps: 
     Compute-> create cluster-> fill details-> Choose runtime-> select machine-> set workers-> Auto terminate-> create cluster.
+
+
+============= Completed databricks and pyspark now best of luck to move further and achieve success in your life :) ========================
